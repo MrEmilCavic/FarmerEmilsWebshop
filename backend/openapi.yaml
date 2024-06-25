@@ -1,0 +1,167 @@
+openapi: 3.0.3
+info:
+  title: Farmer Emils Webshop - OpenAPI 3.0
+  version: 1.0.0
+  description: Basic API for Webshop
+  contact:
+    name: Emil Cavic
+    url: mremilcavic.github.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /auth/register:
+    summary: Lets the user register
+    post:
+      summary: lets user create a new profile
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: 200 success
+        '409':
+          description: 409 conflict
+        '500':
+          description: 500 internal server error
+  /auth/login:
+    summary: lets registered users log in
+    post:
+      summary: lets user log in
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: 200 success
+        '401':
+          description: 401 unauhtorized
+        '500':
+          description: 500 internal server error
+  /users/{userId}:
+    summary: Lets the user view their profile
+    get:
+      summary: gets the user profile
+      description: ''
+      operationId: get_user
+      responses:
+        '200':
+          description: 200 success
+        '500':
+          description: 500 internal server error
+      tags:
+        - User
+      parameters:
+        - name: userId
+          in: path
+          description: 'The id of the user.'
+          required: true
+          schema:
+            type: string
+    put:
+      summary: lets user update their profile
+      description: ''
+      operationId: put_user
+      responses:
+        '200':
+          description: 200 success
+        '500':
+          description: 500 internal server error
+        default:
+          description: Default error sample response
+      tags:
+        - User
+      parameters:
+        - name: userId
+          in: path
+          description: 'The id of the user.'
+          required: true
+          schema:
+            type: string
+  /itemGroups:
+    summary: Lets the user view the item categories
+    get:
+      summary: gets the item categories
+      description: ''
+      operationId: get_itemGroups
+      responses:
+        '200':
+          description: 200 success
+        '404':
+          description: 404 not found         
+        '500':
+          description: 500 internal server error
+      tags:
+        - ItemGroup
+  /itemGroups/{itemGroupId}:
+    summary: Lets the user view the items of that category
+    get:
+      summary: gets a single itemGroup
+      description: ''
+      operationId: get_itemGroup
+      responses:
+        '200':
+          description: 200 success
+        '404':
+          description: 404 not found             
+        '500':
+          description: 500 internal server error
+      tags:
+        - User
+      parameters:
+        - name: itemGroupId
+          in: path
+          description: 'The id of the item category.'
+          required: true
+          schema:
+            type: string
+  /items:
+    summary: Lets the user view the items
+    get:
+      summary: gets the items
+      description: ''
+      operationId: get_items
+      responses:
+        '200':
+          description: 200 success
+        '404':
+          description: 404 not found         
+        '500':
+          description: 500 internal server error
+      tags:
+        - ItemGroup
+  /items/{itemId}:
+    summary: Lets the user view the item
+    get:
+      summary: gets a single item
+      description: ''
+      operationId: get_item
+      responses:
+        '200':
+          description: 200 success
+        '404':
+          description: 404 not found             
+        '500':
+          description: 500 internal server error
+      tags:
+        - User
+      parameters:
+        - name: itemId
+          in: path
+          description: 'The id of the item category.'
+          required: true
+          schema:
+            type: string  
+  /carts/mine:
+    summary: Lets the user view his shopping cart
+    get:
+      summary: gets the cart
+      description: ''
+      operationId: get_cart
+      responses:
+        '200':
+          description: 200 success
+        '404':
+          description: 404 not found         
+        '500':
+          description: 500 internal server error
+      tags:
+        - ShoppingCart                      
