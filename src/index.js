@@ -11,9 +11,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const persistConfig = {
-  key: 'root',
+  key: 'cart',
   storage,
-}
+  };
+  
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

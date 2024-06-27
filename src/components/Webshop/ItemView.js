@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCartItem } from '../../store/Cart.actions';
-import { addToCart } from '../../store/Cart.reducers';
+import { addToCartInc } from '../../store/Cart.actions';
+//import { addToCartInc } from '../../store/Cart.reducers';
 import Button from '@mui/material/Button';
 
 
@@ -19,8 +19,6 @@ function ItemView(props) {
         setLoggedIn(isLoggedIn());
       }, [dispatch]);
 */
-
-    console.log(`cart in itemview is `, cart);
     function handleIncrement() {
         setQuantity(quantity + 1);
     }
@@ -34,9 +32,7 @@ function ItemView(props) {
 
     function handleAddToCart() {
             const shoppingItem = { ...item, quantity: quantity};
-            console.log(`shoppingitem is `, shoppingItem);
-            dispatch(addToCart(shoppingItem));
-            console.log(`cart in itemview after dispatch is `, cart);
+            dispatch(addToCartInc(shoppingItem));
     }
 
     return (

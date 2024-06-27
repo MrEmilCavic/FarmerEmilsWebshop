@@ -10,8 +10,9 @@ import SearchIcon from '@mui/icons-material/Search';
 function Header() {
 
     const { isAuthenticated } = useSelector(state => state.auth);
-    const { items } = useSelector(state => state.cart);
+    const { cart } = useSelector(state => state.cart);
     const { user } = useSelector(state => state.user);
+    console.log(`cart in header is `, cart);
 
     return (
         <div className = "Header">
@@ -28,7 +29,7 @@ function Header() {
                 <p>Welcome, {user.name}!</p>
                 }
                 <Link to={'/cart'}>
-                <Badge badgeContent={items?.length || 0}>
+                <Badge badgeContent={cart?.length || 0}>
                 <ShoppingBagIcon alt="Your shopping cart" />
                 </Badge>
                 </Link>

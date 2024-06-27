@@ -1,37 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { checkLogin } from './Auth.actions';
-import { addCartItem, checkOutCart, loadCart, removeCartItem } from './Cart.actions';
+import { addToCartInc, addCartItem, checkOutCart, loadCart, removeCartItem } from './Cart.actions';
 
-const initialState = {};
+const initialState = {
+    cart: [],
+};
 
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart: (state, action) => {
+        /*
+        addToCartInc: (state, action) => {
             const item = action.payload;
-            const shoppingCart = state.items;
-            console.log(`state.items is `, state.items);
-            console.log(`action.payload is `, action.payload);
-            console.log(`addtocart item is `, item);
-            state.items.push(action.payload);
-            console.log(`state.cart after push `, state.items);
-            const isCartItem = state.items ? 
-                                state.items.find((cartItem) => cartItem.id === item.id) 
-                                : state.items.push(...action.payload);
+            const shoppingCart = state.cart;
+            const isCartItem = state.cart ? 
+                                state.cart.find((cartItem) => cartItem.id === item.id) 
+                                : state.cart.push(...action.payload);                                
                 if(isCartItem) {
                     shoppingCart.item[item.id].quantity += item.quantity;
                 } else {                 
                     shoppingCart.push(...action.payload);
-                    console.log(`state.items after push `, state.items);
+                    console.log(`state.cart after push `, state.cart);
                 } 
-        },          
+        },  
+        */        
     },
 
     
     extraReducers: (builder) => {
         builder
+        .addCase(addToCartInc.fulfilled, (state, action) => {
+            const item = action.payload;
+            state.cart.push(item);
+        })
             .addCase(addCartItem.fulfilled, (state, action) => {
                 const { item } = action.payload;
                 state.items.push(item);
@@ -55,4 +58,4 @@ const cartSlice = createSlice({
 
 
 export default cartSlice.reducer;
-export const { addToCart } = cartSlice.actions;
+//export const { addToCartInc } = cartSlice.actions;

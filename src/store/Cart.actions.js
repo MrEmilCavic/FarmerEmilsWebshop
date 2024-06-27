@@ -2,6 +2,18 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { addToCart, checkOut, fetchCart, removeFromCart } from '../apis/cart';
 //import { response } from 'express';
 
+export const addToCartInc = createAsyncThunk(
+    'cart/addToCart',
+    async(item, thunkAPI) => {
+        try {
+            const cartItem = item;
+            return cartItem;
+        } catch(err) {
+            throw err;
+        }
+    }
+);
+
 export const addCartItem = createAsyncThunk(
     'cart/addItem',
     async({ item, quantity }, thunkAPI) => {
