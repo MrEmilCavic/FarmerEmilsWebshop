@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { checkLogin } from './Auth.actions';
-import { addToCartInc, addCartItem, checkOutCart, loadCart, removeCartItem } from './Cart.actions';
+import { addToCartInc, addCartItem, checkOutCart, loadCart, removeCartItem, removeItemFromCart } from './Cart.actions';
 
 const initialState = {
     cart: [],
@@ -52,6 +52,11 @@ const cartSlice = createSlice({
             .addCase(removeCartItem.fulfilled, (state, action) => {
                 const { item } = action.payload;
                 state.items = state.items.filter((cartItem) => cartItem.id !== item.id);
+            })
+            .addCase(removeItemFromCart.fulfilled, (state, action) => {
+                const { item } = action.payload;
+                console.log(`cart reducers item is `, item);
+                state.cart = state.cart.filter((cartItem) => cartItem.id !== item.id);
             })
     }
 });

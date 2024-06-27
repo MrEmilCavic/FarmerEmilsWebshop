@@ -72,3 +72,16 @@ export const removeCartItem = createAsyncThunk(
         }
     }
 );
+
+export const removeItemFromCart = createAsyncThunk(
+    'cart/removeItemFromCart',
+    async(cartItemId, thunkAPI) => {
+        try {
+            return {
+                item: cartItemId
+            }
+        } catch(err) {
+            throw err;
+        }
+    }
+)
