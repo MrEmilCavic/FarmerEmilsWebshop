@@ -2,38 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import { checkLogin } from './Auth.actions';
 import { addToCartInc, addCartItem, checkOutCart, loadCart, removeCartItem, removeItemFromCart } from './Cart.actions';
 
-const initialState = {
-    cart: [],
-};
+const initialState = { cart: [],};
 
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
-    reducers: {
-        /*
-        addToCartInc: (state, action) => {
-            const item = action.payload;
-            const shoppingCart = state.cart;
-            const isCartItem = state.cart ? 
-                                state.cart.find((cartItem) => cartItem.id === item.id) 
-                                : state.cart.push(...action.payload);                                
-                if(isCartItem) {
-                    shoppingCart.item[item.id].quantity += item.quantity;
-                } else {                 
-                    shoppingCart.push(...action.payload);
-                    console.log(`state.cart after push `, state.cart);
-                } 
-        },  
-        */        
-    },
+    reducers: {},
 
     
     extraReducers: (builder) => {
         builder
         .addCase(addToCartInc.fulfilled, (state, action) => {
             const item = action.payload;
-            state.cart.push(item);
+            const isInCart = state.cart.find((cartItem) => cartItem.id === item.id);
+            if (isInCart) {
+                isInCart.quantity += item.quantity;
+            } else {
+                state.cart.push(item);
+            }
         })
             .addCase(addCartItem.fulfilled, (state, action) => {
                 const { item } = action.payload;
@@ -55,7 +42,6 @@ const cartSlice = createSlice({
             })
             .addCase(removeItemFromCart.fulfilled, (state, action) => {
                 const { item } = action.payload;
-                console.log(`cart reducers item is `, item);
                 state.cart = state.cart.filter((cartItem) => cartItem.id !== item.id);
             })
     }
@@ -63,4 +49,3 @@ const cartSlice = createSlice({
 
 
 export default cartSlice.reducer;
-//export const { addToCartInc } = cartSlice.actions;

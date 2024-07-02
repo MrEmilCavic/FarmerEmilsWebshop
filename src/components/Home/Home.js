@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadItemGroups } from '../../store/ItemGroups.actions';
 import ItemGroups from './ItemGroups';
+import './Home.css';
 
 
 function Home() {
@@ -25,7 +26,7 @@ function Home() {
                 { groupsSelector && Object.keys(groupsSelector).length > 0 &&
                 Object.keys(groupsSelector).map((key) => {
                     const itemGroupList = groupsSelector[key];
-                    return <ItemGroups data={itemGroupList} key={itemGroupList.id} />
+                    return <ItemGroups className="Itemgroups" data={itemGroupList} key={itemGroupList.id} />
                 })}               
             </div>
         </div>

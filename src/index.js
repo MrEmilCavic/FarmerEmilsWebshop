@@ -11,16 +11,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const persistConfig = {
-  key: 'cart',
+  key: 'beepboop',
   storage,
   };
   
-
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
-  reducer: persistedReducer
-});
+const store = configureStore({ reducer: persistedReducer});
 
 const persistor = persistStore(store)
 

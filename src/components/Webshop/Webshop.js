@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadItems } from '../../store/Items.actions';
 import ItemView from './ItemView';
+import './Webshop.css';
 
 
 function Webshop () {
@@ -30,7 +31,7 @@ function Webshop () {
                 { filteredItems && 
                 Object.keys(filteredItems).map((key) => {
                     const item = filteredItems[key];
-                    return <ItemView item={item} key={item.id} />
+                    return <ItemView className="ItemView" item={item} key={item.id} />
                 })}
             </div>
             )        

@@ -1,0 +1,58 @@
+body {
+    background-image: url("./util/fews_beebg.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:center;
+}
+.Header {
+    display: flex;
+    flex-direction:column;
+    margin: 0px;
+    color: #ecb35c;
+    text-shadow:#2b2b2b 0 2px 5px;
+}
+
+.Logo {
+    width: 20%;
+    min-width: 15em;
+    position: absolute;
+    top:0;
+    left: 40%;
+}
+
+.Bannerdiv {
+    position: absolute;
+    left: 45%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+}
+
+.title2 {
+    width: 200%;
+    position: absolute;
+    left: -52%;
+    top: 260%;
+}
+
+.utils {
+    position: absolute;
+    width: 10%;
+    left: 75%;
+    top: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #ecb35c;
+    transform: scale(1.5);
+    background-color: rgba(250, 250, 250, 0.808);
+    border: 0.5px solid #2b2b2b;
+    border-radius: 25px;
+    padding: 1em; 
+}
+
+svg {
+    height: 10rem;
+    color: #ecb35c;
+    
+}

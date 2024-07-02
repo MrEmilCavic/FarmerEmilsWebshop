@@ -1,0 +1,29 @@
+.CartItem {
+    display: flex; 
+    margin: 0 15%;
+    flex-direction: column;
+    justify-content:flex-start; 
+    width: 50%;
+}
+
+.firstLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.secondLine {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.CartItem img {
+    width: 10%;
+}

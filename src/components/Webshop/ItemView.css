@@ -1,0 +1,18 @@
+.ItemView {
+    background-color: rgba(250, 250, 250, 0.76);
+}
+
+.ItemView img {
+    width: 30%;
+    height: auto;
+}
+.utilWrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
