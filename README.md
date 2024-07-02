@@ -1,6 +1,6 @@
 # Farmer Emils Webshop - my very first PERN App!
 PERN - PostgreSQL - express.js - React.js - Node.js (+ Redux!)
-Mimicking a classic webshop, the data is loaded from the database to the server and routed to the frontend.
+Mimicking a classic webshop, the data is loaded from the database to the server and routed to the frontend via REST api.
 So far you can view items and add them to a cart - a proper check-out including registration and login is in the works
 (as can be seen by the barebones code existing already for it).
 
